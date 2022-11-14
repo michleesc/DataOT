@@ -19,6 +19,8 @@ services:
       TZ: Asia/Jakarta
       SERVICE_TAGS: dev
       SERVICE_NAME: mysql
+    networks: 
+      - 'database_net'
 
   lumen_php:
     build:
@@ -30,6 +32,8 @@ services:
       - ./src:/var/www/html
       - ./php/www.conf:/usr/local/etc/php-fpm.d/www.conf
     working_dir: /var/www/html
+    networks: 
+      - 'database_net'
 
   lumen_nginx:
     build:
@@ -42,5 +46,17 @@ services:
     volumes:
       - ./src:/var/www/html
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - lumen_php
+    networks: 
+      - 'database_net'
+
+  adminer:
+    container_name: adminer
+    image: 'adminer'
+    restart: always
+    ports: 
+      - "8080:8080"
+    networks:   
+      - 'database_net'
+
+networks:
+  database_net:
