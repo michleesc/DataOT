@@ -4,10 +4,10 @@ use category
 
 db.createCollection("barang")
 
-db.barang.insert([{"id": "1", "title": "Nike", "harga": "100000"}, 
-{"id": "2", "title": "Adidas", "harga": "150000"}, 
-{"id": "3", "title": "Convers", "harga": "250000"}, 
-{"id": "4", "title": "Levis", "harga": "75000"}])
+db.barang.insert([{"id": "1", "title": "Vans", "harga": "250000"}, 
+{"id": "2", "title": "Erigo", "harga": "150000"}, 
+{"id": "3", "title": "Asus", "harga": "300000"}, 
+{"id": "4", "title": "Ventela", "harga": "85000"}])
 
 db.barang.find()
 
