@@ -1,0 +1,16 @@
+docker exec -it mongo mongosh --username root --password p455w0rd
+
+use category
+
+db.createCollection("barang")
+
+db.barang.insert([{"id": "1", "title": "Nike", "harga": "100000"}, 
+{"id": "2", "title": "Adidas", "harga": "150000"}, 
+{"id": "3", "title": "Convers", "harga": "250000"}, 
+{"id": "4", "title": "Levis", "harga": "75000"}])
+
+db.barang.find()
+
+db.barang.find({"harga": {$gt: "150000"}})
+
+db.barang.update({"_id" : ObjectId("63903b6d76088d761540cba6")}, {$set: {"title" : H&M}})
